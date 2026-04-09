@@ -7,6 +7,8 @@
 #define MESS_STACKER_VERSION "v0.0.01"
 #define SIZE_MAX_DATA 57
 
+#include <stdbool.h>
+
 char* getMessStackerVersion();
 
 typedef struct message{
@@ -15,6 +17,21 @@ typedef struct message{
     uint8_t size;                //nombre d'octets 
     uint8_t checksum;            //checksum 
 } Message;
+
+/*API de la librairie */ 
+
+bool sendMessage(uint8_t cmd, char data, uint8_t size);
+
+bool haveMessage();
+bool nextMessage();
+
+uint8_t curMessageCmd();
+uint8_t curMessageSize();
+uint8_t curMessageChecksum(); 
+
+bool curMessageData(char* buff, int lengthMax);
+
+uint8_t checksumMessage(uint8_t cmd, char* data, uint8_t size);
 
 
 #endif
