@@ -24,7 +24,7 @@
 - [curMessageSize](#curmessagesize)
 - [curMessagechecksum](#curmessagechecksum)
 - [curMessageData](#curmessagedata)
-
+- [nextMessage](#nextmessage)
 
 ---
 
@@ -119,3 +119,10 @@ Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulair
 **Retourne :**     
     - true : si la copie réussi    
     - false : si aucun nmessage est présent dans la file ou si la taille maximale du tableau buff est inférieur à la taille du message courant   
+
+#### nextMessage
+**Description : Passage au message suivant dans la file**  
+**Paramètre** : aucun   
+**Retourne :**
+    - true : si passage au message suivant
+    - false : si la file est vide 

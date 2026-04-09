@@ -28,6 +28,7 @@ curMessageCmd : valeur de la commande du message courant dans la file
 curMessageSize : valeur de la taille du message courant
 curMessagechecksum : code contrôle garantissant l'intégrité du message 
 curMessageData : copie donnée (data) du message courant dans un buffer 
+nextMessage : passage au message suivant dans la file
 */
 
 bool sendMessage(uint8_t cmd, char* data, uint8_t size);

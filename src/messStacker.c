@@ -19,6 +19,7 @@ curMessageCmd : valeur de la commande du message courant dans la file
 curMessageSize : valeur de la taille du message courant
 curMessagechecksum : code contrôle garantissant l'intégrité du message 
 curMessageData : copie donnée (data) du message courant dans un buffer 
+nextMessage : passage au message suivant dans la file
 */
 
 char* getMessStackerVersion(){
@@ -170,4 +171,26 @@ bool curMessageData(char* buff, int lengthMax){
     }
 
     return true;
+}
+
+bool nextMessage(){
+    /* Passage au message suivant dans la file
+
+    Paramètre : aucun
+
+    Retourne : 
+        - true : si passage au message suivant
+        - false : si la file est vide 
+    
+    */
+    if(messCount == 0){
+        printf("Il n'y a pas de message");
+        return false; 
+    }
+
+    curPos = (curPos + 1) % SIZE_STACK;
+    messCount -= 1; 
+
+
+    return true; 
 }
