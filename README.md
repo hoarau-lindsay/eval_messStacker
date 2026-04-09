@@ -69,14 +69,34 @@ Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulair
 
 
 #### sendMessage
-**Description : Ajout d'un message dans la file de messages (stackMess)**
+**Description : Ajout d'un message dans la file de messages (stackMess)**   
+**Paramètres :**  
+    cmd : commande (un nombre)  
+    data : tableau d'octet   
+    size : nombre d'octet à considérer pour le contenu dans le tableau data   
+**Retourne :**  
+    - true : si le message a été ajouté   
+    - false : si la file est pleine (message non ajouté)   
+    
+#### curMessageCmd
+**Description : Valeur de la commande du message courant dans la file**     
+**Paramètre :** aucun     
+**Retourne :**    
+    - stackMess[curPos].cmd : la valeur de cmd du mesage courant   
+    - 0 si la file est vide    
 
-**Paramètres :**
-    cmd : commande (un nombre)
-    data : tableau d'octet 
-    size : nombre d'octet à considérer pour le contenu dans le tableau data 
+#### curMessageSize  
+**Description : Valeur de la taille du message courant**  
+**Paramètre :** aucun   
+**Retourne :**   
+    - stackMess[curPos].size : valeur size du message courant   
+     - 0 si la file est vide 
 
-**Retourne :**
-    - true : si le message a été ajouté 
-    - false : si la file est pleine (message non ajouté)
+#### curMessageChecksum
+**Description code contrôle garantissant l'intégrité du message**  
+**Paramètre** : aucun   
+**Retourne:**  
+    - stackMess[curPos].checksum : valeur checksum du message courant   
+    - 0 si la file est vide   
+
     

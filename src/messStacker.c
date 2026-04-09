@@ -15,7 +15,9 @@ int messCount = 0;              //nombre de message présent
 getMessStackerVersion : version du la librairie
 haveMessage : indique si la file contient au moins un message 
 checksumMessage : somme (cmd + data) définissant code de contrôle pour garantir l'intégrité de l'information
-
+curMessageCmd : valeur de la commande du message courant dans la file
+curMessageSize : valeur de la taille du message courant
+curMessagechecksum : code contrôle garantissant l'intégrité du message 
 */
 
 char* getMessStackerVersion(){
@@ -90,6 +92,15 @@ bool sendMessage(uint8_t cmd, char* data, uint8_t size){
 }
 
 uint8_t curMessageCmd(){
+    /* Valeur de la commande du message courant dans la file 
+
+    Paramètre : aucun 
+
+    Retourne : 
+        - stackMess[curPos].cmd : la valeur de cmd du mesage courant
+        - 0 si la file est vide 
+
+    */
     if (messCount == 0){ 
         printf("Il n'y a pas de message");
         return 0;
@@ -98,6 +109,14 @@ uint8_t curMessageCmd(){
 }
 
 uint8_t curMessageSize(){
+    /* Valeur de la taille du message courant
+    
+    Paramètre : aucun 
+
+    Retourne : 
+        - stackMess[curPos].size : valeur size du message courant 
+        - 0 si la file est vide 
+    */
     if (messCount == 0){ 
         printf("Il n'y a pas de message");
         return 0;
@@ -106,9 +125,19 @@ uint8_t curMessageSize(){
 }
 
 uint8_t curMessageChecksum(){
+    /* code contrôle garantissant l'intégrité du message 
+    
+    Paramètre : aucun 
+    
+    Retourne:
+        - stackMess[curPos].checksum : valeur checksum du message courant 
+        - 0 si la file est vide 
+    */
+
     if (messCount == 0){ 
         printf("Il n'y a pas de message");
         return 0;
     }
     return stackMess[curPos].checksum; 
 }
+
