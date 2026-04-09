@@ -18,6 +18,7 @@ checksumMessage : somme (cmd + data) définissant code de contrôle pour garanti
 curMessageCmd : valeur de la commande du message courant dans la file
 curMessageSize : valeur de la taille du message courant
 curMessagechecksum : code contrôle garantissant l'intégrité du message 
+curMessageData : copie donnée (data) du message courant dans un buffer 
 */
 
 char* getMessStackerVersion(){
@@ -141,3 +142,32 @@ uint8_t curMessageChecksum(){
     return stackMess[curPos].checksum; 
 }
 
+bool curMessageData(char* buff, int lengthMax){
+    /*Copie donnée (data) du message courant dans un buffer 
+    
+    Paramètres : 
+        buff : tableau dans lequel seront copiées les données du message courant 
+        lenghtMax : taille maximale du tableau buff
+
+    Retourne : 
+        - true : si la copie réussi 
+        - false : si aucun nmessage est présent dans la file ou si la taille maximale du tableau buff est inférieur à la taille du message courant
+    */
+
+    if(messCount == 0){
+        printf("Il n'y a pas de message");
+        return false; 
+    }
+
+    uint8_t n = stackMess[curPos].size; 
+
+    if(lengthMax < n){
+        return false;
+    }
+    
+    for(uint8_t i = 0; i < n; i++){
+        buff[i]= stackMess[curPos].data[i];
+    }
+
+    return true;
+}

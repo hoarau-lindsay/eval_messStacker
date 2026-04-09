@@ -14,6 +14,18 @@
 - [Arborescence](#arborescence)
 - [Git](#git)
 - [API](#api-de-la-librairie)
+- [Fonctions](#fonctions)
+---
+### Fonctions
+- [haveMesssage](#havemessage)
+- [checksumMessage](#checksummessage)
+- [sendMessage](#sendmessage)
+- [curMessageCmd](#curmessagecmd)
+- [curMessageSize](#curmessagesize)
+- [curMessagechecksum](#curmessagechecksum)
+- [curMessageData](#curmessagedata)
+
+
 ---
 
 ### Arborescence
@@ -99,4 +111,11 @@ Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulair
     - stackMess[curPos].checksum : valeur checksum du message courant   
     - 0 si la file est vide   
 
-    
+#### curMessageData
+**Description : Copie donnée (data) du message courant dans un buffer**   
+**Paramètres :** 
+    buff : tableau dans lequel seront copiées les données du message courant    
+    lenghtMax : taille maximale du tableau buff   
+**Retourne :**     
+    - true : si la copie réussi    
+    - false : si aucun nmessage est présent dans la file ou si la taille maximale du tableau buff est inférieur à la taille du message courant   
