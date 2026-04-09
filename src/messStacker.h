@@ -19,6 +19,10 @@ typedef struct message{
 } Message;
 
 /*API de la librairie */ 
+/* Fonctions disponibles
+
+haveMessage : indique si la file contient au moins un message 
+*/
 
 bool sendMessage(uint8_t cmd, char data, uint8_t size);
 

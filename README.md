@@ -13,6 +13,7 @@
 - [Contexte](#contexte)
 - [Arborescence](#arborescence)
 - [Git](#git)
+- [API](#api-de-la-librairie)
 ---
 
 ### Arborescence
@@ -45,3 +46,19 @@
 Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulaire](https://github.com/hoarau-lindsay/eval_messStacker.git)
 
 ---
+
+
+### API de la librairie 
+
+#### haveMessage
+
+**Description : Indique si la file contient au moins un message**  
+**Paramètre** : aucun  
+**Retourne** :   
+    - true : si la file contient un message   
+    - false : si la file ne contient aucun message (messCount = 0)  
+
+
+
+    
+    
