@@ -1,4 +1,4 @@
 # Fichiers.o et exécutable 
 
-build/*.o
-build/test 
+*.o
+
