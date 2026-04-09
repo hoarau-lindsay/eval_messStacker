@@ -14,6 +14,7 @@ int messCount = 0;              //nombre de message présent
 /* Fonctions disponibles
 getMessStackerVersion : version du la librairie
 haveMessage : indique si la file contient au moins un message 
+checksumMessage : somme (cmd + data) définissant code de contrôle pour garantir l'intégrité de l'information
 
 */
 
@@ -34,5 +35,26 @@ bool haveMessage(){
     */
     return messCount != 0;
 }
+
+uint8_t checksumMessage(uint8_t cmd, char* data, uint8_t size){
+    /*Code de contrôle pour garantir l'intégrité de l'information
+    Calcul la somme de l'ensemble commande + un bloc d'octet data
+
+    Paramètres : 
+        cmd : commande (un nombre)
+        data : tableau d'octet 
+        size : nombre d'octet à considérer pour le contenu dans le tableau data 
+
+    Retourne : 
+        somme : somme de l'ensemble cmd + data 
+    */
+
+    uint8_t somme = cmd; 
+    for(int i = 0; i < size; i++){
+        somme += (uint8_t)data[i];
+    }
+    return somme;
+}
+
 
     

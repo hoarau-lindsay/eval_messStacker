@@ -58,6 +58,14 @@ Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulair
     - true : si la file contient un message   
     - false : si la file ne contient aucun message (messCount = 0)  
 
+#### checksumMessage
+ **Description : Code de contrôle pour garantir l'intégrité de l'information. Calcul la somme de l'ensemble commande + un bloc d'octet data**   
+**Paramètres :**  
+    cmd : commande (un nombre)  
+    data : tableau d'octet   
+    size : nombre d'octet à considérer pour le contenu dans le tableau data   
+**Retourne :**   
+    somme : somme de l'ensemble cmd + data   
 
 
     
