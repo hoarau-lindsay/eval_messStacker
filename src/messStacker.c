@@ -89,5 +89,26 @@ bool sendMessage(uint8_t cmd, char* data, uint8_t size){
     return true;
 }
 
+uint8_t curMessageCmd(){
+    if (messCount == 0){ 
+        printf("Il n'y a pas de message");
+        return 0;
+    }
+    return stackMess[curPos].cmd;
+}
 
-    
+uint8_t curMessageSize(){
+    if (messCount == 0){ 
+        printf("Il n'y a pas de message");
+        return 0;
+    }
+    return stackMess[curPos].size;
+}
+
+uint8_t curMessageChecksum(){
+    if (messCount == 0){ 
+        printf("Il n'y a pas de message");
+        return 0;
+    }
+    return stackMess[curPos].checksum; 
+}
