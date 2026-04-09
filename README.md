@@ -68,5 +68,15 @@ Dépôt git disponible à l'adresse suivante : [TP1 - File par tableau circulair
     somme : somme de l'ensemble cmd + data   
 
 
-    
+#### sendMessage
+**Description : Ajout d'un message dans la file de messages (stackMess)**
+
+**Paramètres :**
+    cmd : commande (un nombre)
+    data : tableau d'octet 
+    size : nombre d'octet à considérer pour le contenu dans le tableau data 
+
+**Retourne :**
+    - true : si le message a été ajouté 
+    - false : si la file est pleine (message non ajouté)
     

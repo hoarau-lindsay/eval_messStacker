@@ -23,6 +23,7 @@ typedef struct message{
 
 haveMessage : indique si la file contient au moins un message 
 checksumMessage : somme (cmd + data) définissant code de contrôle pour garantir l'intégrité de l'information
+sendMessage : ajout d'un message dans la file de messages (stackMess)
 */
 
 bool sendMessage(uint8_t cmd, char* data, uint8_t size);

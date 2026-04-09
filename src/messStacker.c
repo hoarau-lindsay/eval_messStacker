@@ -53,7 +53,40 @@ uint8_t checksumMessage(uint8_t cmd, char* data, uint8_t size){
     for(int i = 0; i < size; i++){
         somme += (uint8_t)data[i];
     }
+
     return somme;
+}
+
+bool sendMessage(uint8_t cmd, char* data, uint8_t size){
+    /* Ajout d'un message dans la file de messages (stackMess)
+
+    Paramètres : 
+        cmd : commande (un nombre)
+        data : tableau d'octet 
+        size : nombre d'octet à considérer pour le contenu dans le tableau data 
+
+    Retourne : 
+        - true : si le message a été ajouté 
+        - false : si la file est pleine (message non ajouté)
+    */
+
+    if (messCount >= SIZE_STACK){
+        printf("La file est pleine");
+        return false; 
+    }
+
+    lastPos = (lastPos + 1) % SIZE_STACK;
+
+    stackMess[lastPos].cmd = cmd; 
+    for (uint8_t i = 0; i < size; i++) {
+        stackMess[lastPos].data[i] = data[i];
+    }
+    stackMess[lastPos].size = size;
+    stackMess[lastPos].checksum = checksumMessage(cmd, data, size);
+
+    messCount += 1;
+
+    return true;
 }
 
 
